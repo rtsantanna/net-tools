@@ -1,0 +1,50 @@
+https://blog.cod3r.com.br/guia-basico-de-git-como-fazer-commit-no-github/
+
+git remote add origin https://github.com/rtsantanna/net-tools.git
+git add .
+git commit -m "Begin"
+git push -u origin master
+
+
+git branch -m main master
+git fetch origin
+git branch -u origin/master master
+git remote set-head origin -a
+
+pwd
+docker login
+docker images
+
+docker build -t net-tools:v1.0 .
+docker build -t rtsantanna/net-tools:v1.0 .
+
+docker push rtsantanna/net-tools:v1.0
+
+docker run exec -it rtsantanna/net-tools:v1.0 /bin/bash
+
+docker run -it --rm rtsantanna/net-tools:v1.0 az --version
+docker run -it --rm rtsantanna/net-tools:v1.0 aws --version
+
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
+
+### Azure CLI
+#curl -L https://aka.ms/InstallAzureCli | bash
+
+
+#ENV LD_LIBRARY_PATH=/lib
+#RUN wget https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+#RUN unzip instantclient-basic-linux.x64-21.6.0.0.0dbru.zip && \
+#    cp -r instantclient_21_6/* /lib && \
+#    rm -rf instantclient-basic-linux.x64-21.6.0.0.0dbru.zip && \
+#    apk add libaio && \
+#    apk add libaio libnsl libc6-compat && \
+#    cd /lib && \
+#    ln -s /lib64/* /lib && \
+#    ln -s libnsl.so.2 /usr/lib/libnsl.so.1 && \
+#    ln -s libc.so /usr/lib/libresolv.so.2
+
+#ENV ORACLE_BASE /usr/lib/instantclient
+#ENV LD_LIBRARY_PATH /usr/lib/instantclient
+#ENV TNS_ADMIN /usr/lib/instantclient
+#ENV ORACLE_HOME /usr/lib/instantclient
